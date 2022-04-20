@@ -1,0 +1,73 @@
+section.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #002D69;
+    height: 80px;
+    padding: 0px 20px;
+}
+
+section.body{
+    padding: 50px 40px;
+
+    .content-top{
+        display: flex;
+        justify-content: space-between;
+
+        h1{
+            color:#333333;
+            font-size: 36px;
+        }
+    
+        .add-btn{
+            font-size: 12px;
+            background: #007DFE;
+            border-radius: 4px;
+        }
+    }
+
+    .table-container{
+        margin-top: 20px;
+        
+        .table-header{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .table-body{
+            table {
+                width: 100%;
+                
+                mat-cell{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-start;
+                }
+            
+                sub{
+                    color: #69788C;
+                }
+            
+                ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background{
+                    background: #007DFE;
+                }
+    
+                .mat-column-title{ flex: 0 0 25%; }
+                .mat-column-date, .mat-column-value{ flex: 0 0 15%; }
+                .mat-column-isPayed{ flex: 0 0 7%; }
+                .mat-column-action{ 
+                    display: flex;
+                    align-items: flex-end;
+                    .action-btn{
+                        cursor: pointer;
+                        margin: 0px 5px;
+                    }
+                    // div{width: 100px;}
+                    // button{width: 30px; padding: 0px;}
+                 }
+            }
+        }
+    }
+
+}
