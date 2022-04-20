@@ -1,0 +1,22 @@
+<div class="container">
+    <label>{{ paginator.label }}</label>
+    <mat-form-field appearance="outline">
+        <mat-select id="size-options" [(value)]="paginator.pageSize" [formControl]="pageSizeControl">
+            <mat-option *ngFor="let option of paginator.pageSizeOptions" [value]="option">
+                {{ option }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <div class='pagesIndex'>
+        <button mat-icon-button (click)="goToPage(paginator.pageIndex - 1)">
+            <mat-icon>chevron_left</mat-icon>
+        </button>
+        <a [class]='{ active: paginator.pageIndex + 1 == index }' (click)="goToPage(index-1)" *ngFor="let index of pageNumbers">
+            {{ index }}
+        </a>
+        <button mat-icon-button (click)="goToPage(paginator.pageIndex + 1)">
+            <mat-icon>navigate_next</mat-icon>
+        </button>
+    </div>
+</div>
