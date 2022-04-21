@@ -8,11 +8,11 @@
         </div>
     </section>
 
-    <section class="body">
+    <section class="body" [class]="{blur: blur}">
         <div class="content">
             <div class="content-top">
                 <h1>Meus Pagamentos</h1>
-                <button mat-flat-button class='add-btn' color="primary">ADICIONAR PAGAMENTO</button>
+                <button (click)="openAddPaymentPopup()" mat-flat-button class='add-btn' color="primary">ADICIONAR PAGAMENTO</button>
             </div>
 
             <div class='table-container'>
@@ -86,8 +86,8 @@
                             <mat-header-cell *matHeaderCellDef></mat-header-cell>
                             <mat-cell *matCellDef="let payment">
                                 <div>
-                                    <span (click)="edit(payment.id)" class="material-icons action-btn"> edit </span>
-                                    <span (click)="remove(payment.id)" class="material-icons action-btn"> highlight_off </span>
+                                    <span (click)="openEditPaymentPopup(payment.id)" class="material-icons action-btn"> edit </span>
+                                    <span (click)="openDeletePaymentPopup(payment.id)" class="material-icons action-btn"> highlight_off </span>
                                 </div>
                             </mat-cell>
                         </ng-container>
@@ -100,3 +100,4 @@
         </div>
     </section>
 </div>
+<app-add-payment *ngIf="addPaymentPopup" (close)='closePopup();' (submit)="closePopup(); addPayment($event);"></app-add-payment>

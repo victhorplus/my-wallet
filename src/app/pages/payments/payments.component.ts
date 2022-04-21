@@ -109,6 +109,11 @@ export class PaymentsComponent implements OnInit {
         isPayed: false
     }];
   paginator: any;
+  blur: boolean = false;
+  addPaymentPopup = false;
+  editPaymentPopup = false;
+  deletePaymentPopup = false;
+
   constructor() {
     this.paginator = {
       length: 100,
@@ -121,7 +126,38 @@ export class PaymentsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  edit(id){}
-  remove(id){}
+  openAddPaymentPopup(){
+    this.blur = true;
+    this.addPaymentPopup = true;
+  }
+
+  addPayment(value){
+    console.log("Add Payment", value)
+  }
+ 
+  openEditPaymentPopup(id){
+    this.blur = true;
+    this.editPaymentPopup = true;
+  }
+
+  editPayment(value){
+    console.log("edit Payment", value)
+  }
+  
+  openDeletePaymentPopup(id){
+    this.blur = true;
+    this.deletePaymentPopup = true;
+  }
+
+  deletePayment(value){
+    console.log("delete Payment", value)
+  }
+  
+  closePopup(){
+    this.blur = false;
+    this.addPaymentPopup = false;
+    this.editPaymentPopup = false;
+    this.deletePaymentPopup = false;
+  }
 
 }

@@ -11,15 +11,18 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './pages/login/login.component';
 import { PaymentsComponent } from './pages/payments/payments.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
+import { AddPaymentComponent } from './components/add-payment/add-payment.component';
 @NgModule({
   declarations: [	
-    AppComponent, LoginComponent, PaymentsComponent, PaginatorComponent,
+    AppComponent, LoginComponent, PaymentsComponent, PaginatorComponent, AddPaymentComponent,
    ],
   imports: [
     BrowserModule,
@@ -34,7 +37,9 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
     FormsModule,
     ReactiveFormsModule,
     MatTableModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
