@@ -24,10 +24,11 @@ export class AddPaymentComponent implements OnInit {
     });
   }
 
-  cancelPayment(){
+  cancelPayment(): void{
     this.close.emit();
   }
-  onSubmit(){
+
+  onSubmit(): void{
     if(this.paymentForm.status){
       this.payment = this.paymentForm.value;
       this.submit.emit(this.payment);

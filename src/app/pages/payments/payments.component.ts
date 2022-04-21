@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { Payment } from 'src/app/models/payment.models';
 
 @Component({
   selector: 'app-payments',
@@ -113,6 +114,7 @@ export class PaymentsComponent implements OnInit {
   addPaymentPopup = false;
   editPaymentPopup = false;
   deletePaymentPopup = false;
+  payment: Payment;
 
   constructor() {
     this.paginator = {
@@ -135,7 +137,8 @@ export class PaymentsComponent implements OnInit {
     console.log("Add Payment", value)
   }
  
-  openEditPaymentPopup(id){
+  openEditPaymentPopup(payment){
+    this.payment = payment;
     this.blur = true;
     this.editPaymentPopup = true;
   }

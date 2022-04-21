@@ -20,9 +20,10 @@ import { LoginComponent } from './pages/login/login.component';
 import { PaymentsComponent } from './pages/payments/payments.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
 import { AddPaymentComponent } from './components/add-payment/add-payment.component';
+import { EditPaymentComponent } from './components/edit-payment/edit-payment.component';
 @NgModule({
   declarations: [	
-    AppComponent, LoginComponent, PaymentsComponent, PaginatorComponent, AddPaymentComponent,
+    AppComponent, LoginComponent, PaymentsComponent, PaginatorComponent, AddPaymentComponent, EditPaymentComponent,
    ],
   imports: [
     BrowserModule,

@@ -1,0 +1,33 @@
+.container{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 80px;
+    width: 100%;
+    height: calc(100% - 80px);
+    background: rgba(0,0,0, 0.3);
+}
+
+.popup{
+    transform: translateY(-60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 40px;
+    background: #fff;
+}
+
+.row{
+    *{ width: 250px; }
+    *:first-child{  margin-right: 20px; }
+}
+
+.row.btn-row{
+    .cell { 
+        float: right; margin-right: 0px;
+        width: fit-content;
+        button{ width: 100px;}
+        button.mat-primary{ background: #007DFE; }
+    }
+}

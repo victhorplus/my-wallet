@@ -86,8 +86,8 @@
                             <mat-header-cell *matHeaderCellDef></mat-header-cell>
                             <mat-cell *matCellDef="let payment">
                                 <div>
-                                    <span (click)="openEditPaymentPopup(payment.id)" class="material-icons action-btn"> edit </span>
-                                    <span (click)="openDeletePaymentPopup(payment.id)" class="material-icons action-btn"> highlight_off </span>
+                                    <span (click)="openEditPaymentPopup(payment)" class="material-icons action-btn"> edit </span>
+                                    <span (click)="openDeletePaymentPopup(payment)" class="material-icons action-btn"> highlight_off </span>
                                 </div>
                             </mat-cell>
                         </ng-container>
@@ -101,3 +101,4 @@
     </section>
 </div>
 <app-add-payment *ngIf="addPaymentPopup" (close)='closePopup();' (submit)="closePopup(); addPayment($event);"></app-add-payment>
+<app-edit-payment *ngIf="editPaymentPopup" (close)='closePopup();' (submit)="closePopup(); editPayment($event);" [payment]="payment"></app-edit-payment>
