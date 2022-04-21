@@ -1,0 +1,25 @@
+<div class='container'>
+    <div class='popup'>
+        <div>
+            <div class='row'>
+                <h2>Excluir pagamento</h2>
+            </div>
+            <div class='row'>
+                Usuário: {{ payment.username }}
+            </div>
+            <div class='row'>
+                Data: {{ payment.date | date:'dd MMM YYYY' }}
+            </div>
+            <div class='row'>
+                Valor: {{ payment.value | currency:'R$ ' }}
+            </div>
+
+            <div class='row btn-row'>
+                <div class="cell">
+                    <button (click)="cancelDeletePayment()" mat-raised-button>CANCELAR</button>
+                    <button (click)="onSubmit()" type="submit" mat-raised-button color="warn">DELETAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

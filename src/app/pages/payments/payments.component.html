@@ -43,30 +43,30 @@
                         <ng-container matColumnDef="name">
                           <mat-header-cell *matHeaderCellDef> Usuário </mat-header-cell>
                           <mat-cell *matCellDef="let payment">
-                              <span> {{payment.name}} </span>
-                              <sub> @{{payment.username}} </sub>
+                              <span> {{ payment.name }} </span>
+                              <sub> @{{ payment.username }} </sub>
                         </mat-cell>
                         </ng-container>
                       
                         <!-- Name Column -->
                         <ng-container matColumnDef="title">
                           <mat-header-cell *matHeaderCellDef> Título </mat-header-cell>
-                          <mat-cell *matCellDef="let payment"> {{payment.title}} </mat-cell>
+                          <mat-cell *matCellDef="let payment"> {{ payment.title }} </mat-cell>
                         </ng-container>
                       
                         <!-- Weight Column -->
                         <ng-container matColumnDef="date">
                           <mat-header-cell *matHeaderCellDef> Data </mat-header-cell>
                           <mat-cell *matCellDef="let payment">
-                              <span> {{payment.date | date:'dd MMM YYYY'}} </span>
-                              <sub> {{payment.date | date:' h:mm a'}} </sub>
+                              <span> {{ payment.date | date:'dd MMM YYYY' }} </span>
+                              <sub> {{ payment.date | date:' h:mm a' }} </sub>
                         </mat-cell>
                         </ng-container>
                       
                         <!-- Symbol Column -->
                         <ng-container matColumnDef="value">
                           <mat-header-cell *matHeaderCellDef> Valor </mat-header-cell>
-                          <mat-cell *matCellDef="let payment"> {{payment.value | currency:'R$ '}} </mat-cell>
+                          <mat-cell *matCellDef="let payment"> {{ payment.value | currency:'R$ ' }} </mat-cell>
                         </ng-container>
 
                         <!-- Symbol Column -->
@@ -102,3 +102,4 @@
 </div>
 <app-add-payment *ngIf="addPaymentPopup" (close)='closePopup();' (submit)="closePopup(); addPayment($event);"></app-add-payment>
 <app-edit-payment *ngIf="editPaymentPopup" (close)='closePopup();' (submit)="closePopup(); editPayment($event);" [payment]="payment"></app-edit-payment>
+<app-delete-payment *ngIf="deletePaymentPopup" (close)='closePopup();' (submit)="closePopup(); deletePayment($event);" [payment]="payment"></app-delete-payment>

@@ -147,7 +147,8 @@ export class PaymentsComponent implements OnInit {
     console.log("edit Payment", value)
   }
   
-  openDeletePaymentPopup(id){
+  openDeletePaymentPopup(payment){
+    this.payment = payment;
     this.blur = true;
     this.deletePaymentPopup = true;
   }
