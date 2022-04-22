@@ -1,4 +1,5 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing'
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PaymentService } from 'src/app/services/payment.service';
 
@@ -7,16 +8,13 @@ import { PaymentsComponent } from './payments.component';
 describe('PaymentsComponent', () => {
   let component: PaymentsComponent;
   let fixture: ComponentFixture<PaymentsComponent>;
-  let httpStub: HttpClient;
-  let paymentServiceStub: PaymentService = new PaymentService(httpStub);
+  let http: PaymentService;
 
   beforeEach(async () => {
+
     await TestBed.configureTestingModule({
-      imports: [ HttpClientModule ],
-      declarations: [ PaymentsComponent ],
-      providers: [
-        { provide: PaymentService, useValue: paymentServiceStub }
-      ]
+      imports: [ HttpClientTestingModule ],
+      declarations: [ PaymentsComponent ]
     })
     .compileComponents();
   });

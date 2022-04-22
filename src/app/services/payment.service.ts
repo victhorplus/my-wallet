@@ -12,7 +12,7 @@ export class PaymentService {
   params: CustomApi;
   payments: Payment[];
 
-  constructor(public http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   getPayments(params: CustomApi | any): Observable<Payment[]>{
     debugger;

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { CustomApi } from 'src/app/models/custom-api.model';
 import { Payment } from 'src/app/models/payment.model';
 import { PaymentService } from 'src/app/services/payment.service';
@@ -10,6 +11,7 @@ import { PaymentService } from 'src/app/services/payment.service';
 })
 export class PaymentsComponent implements OnInit {
   displayedColumns: string[] = ['name', 'title', 'date', 'value', 'isPayed', 'action'];
+  usernameControl: FormControl = new FormControl('');
   paginator: any;
   blur: boolean = false;
   addPaymentPopup = false;
@@ -35,10 +37,11 @@ export class PaymentsComponent implements OnInit {
   }
   
   ngOnInit(): void {
-  }
-
-  ngAfterViewInit(){
     this.getPayments();
+    this.usernameControl.valueChanges.subscribe( value => {
+      this.params['username_like'] = value;
+      this.getPayments();
+    })
   }
   
   changePaginator(paginator){
@@ -62,7 +65,7 @@ export class PaymentsComponent implements OnInit {
 
   sortBy(field, order){
     if(JSON.stringify(this.sort) == JSON.stringify({ field, order })){
-      this.sort = { field: '', sort: ''};
+      this.sort = { field: '', order: ''};
     }else{
       this.sort = { field,  order };
     }
