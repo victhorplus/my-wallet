@@ -6,7 +6,7 @@ import { PaymentsComponent } from './pages/payments/payments.component';
 import { AuthGuard } from './guards/auth.guard'
 
 const routes: Routes = [
-  {path: '', component: LoginComponent},
+  {path: '', component: LoginComponent, canActivate: [AuthGuard]},
   {path: 'payments', component: PaymentsComponent, canActivate: [AuthGuard]}
 ];
 

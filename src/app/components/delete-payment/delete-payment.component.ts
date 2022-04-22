@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Payment } from 'src/app/models/payment.models';
+import { Payment } from 'src/app/models/payment.model';
 
 @Component({
   selector: 'app-delete-payment',

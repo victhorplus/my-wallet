@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Payment } from 'src/app/models/payment.models';
+import { Payment } from 'src/app/models/payment.model';
 
 @Component({
   selector: 'app-add-payment',

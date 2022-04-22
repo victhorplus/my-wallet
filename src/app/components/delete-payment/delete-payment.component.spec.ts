@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Payment } from 'src/app/models/payment.models';
+import { Payment } from 'src/app/models/payment.model';
 
 import { DeletePaymentComponent } from './delete-payment.component';
 

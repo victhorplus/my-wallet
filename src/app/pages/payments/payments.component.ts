@@ -1,6 +1,5 @@
-import { Component, EventEmitter, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, PageEvent } from '@angular/material/paginator';
-import { Payment } from 'src/app/models/payment.models';
+import { Component, OnInit } from '@angular/core';
+import { Payment } from 'src/app/models/payment.model';
 
 @Component({
   selector: 'app-payments',
