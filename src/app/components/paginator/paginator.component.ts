@@ -13,7 +13,7 @@ export class PaginatorComponent implements OnInit {
     length: 50,
     pageSize: 10,
     pageSizeOptions: [5, 10, 25, 50],
-    pageIndex: 0
+    pageIndex: 1
   };
   @Output() change = new EventEmitter<Paginator>();
   pageNumbers: Array<number>;
@@ -32,6 +32,12 @@ export class PaginatorComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.pageSizeControl.setValue(this.paginator.pageSize);
+    this.calcPageLength();
+  }
+
+  ngOnChange(): void{
+
   }
 
   calcPageLength(){
@@ -40,7 +46,7 @@ export class PaginatorComponent implements OnInit {
   }
 
   goToPage(pageIndex){
-    if(pageIndex >= this.pageNumbers.length || pageIndex < 0) return;
+    if(pageIndex > this.pageNumbers.length || pageIndex < 1) return;
     this.paginator.pageIndex = pageIndex;
     this.change.emit(this.paginator);
   }

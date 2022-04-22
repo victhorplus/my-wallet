@@ -12,7 +12,7 @@
         <button mat-icon-button (click)="goToPage(paginator.pageIndex - 1)">
             <mat-icon>chevron_left</mat-icon>
         </button>
-        <a [class]='{ active: paginator.pageIndex + 1 == index }' (click)="goToPage(index-1)" *ngFor="let index of pageNumbers">
+        <a [class]='{ active: paginator.pageIndex == index }' (click)="goToPage(index)" *ngFor="let index of pageNumbers">
             {{ index }}
         </a>
         <button mat-icon-button (click)="goToPage(paginator.pageIndex + 1)">

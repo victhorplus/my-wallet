@@ -1,6 +1,6 @@
 export class Paginator {
     label?: string;
-    length: number;
+    length?: number;
     pageSize: number;
     pageSizeOptions: Array<number>;
     pageIndex: number;
