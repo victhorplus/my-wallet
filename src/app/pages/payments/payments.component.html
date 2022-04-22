@@ -19,7 +19,7 @@
                 <div class='table-header'>
                     <div class="filters">
                         <mat-form-field appearance="outline">
-                            <input matInput placeholder="Pesquisar por usuário">
+                            <input [formControl]='usernameControl' matInput placeholder="Pesquisar por usuário">
                             <mat-icon matSuffix>search</mat-icon>
                         </mat-form-field>
                         <button mat-flat-button class='search-btn'>
