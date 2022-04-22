@@ -35,41 +35,59 @@
 
                 <div class='table-body'>
                     <table mat-table [dataSource]="mock_payments" class="mat-elevation-z8">
-
-                        <!--- Note mat-header-cellat mat-header-cellese columns can be defined in any order.
-                              mat-header-celle actual rendered columns are set as a property on mat-header-celle row definition" -->
-                      
-                        <!-- Position Column -->
                         <ng-container matColumnDef="name">
-                          <mat-header-cell *matHeaderCellDef> Usuário </mat-header-cell>
-                          <mat-cell *matCellDef="let payment">
-                              <span> {{ payment.name }} </span>
-                              <sub> @{{ payment.username }} </sub>
-                        </mat-cell>
+                            <mat-header-cell *matHeaderCellDef>
+                              Usuário
+                              <button class='unfold-column-btn' mat-icon-button>
+                                  <mat-icon>unfold_more</mat-icon>
+                              </button>
+                            </mat-header-cell>
+                            <mat-cell *matCellDef="let payment">
+                                <div class='cell-data img-payment-field'>
+                                    <img class='img-payment' [src]="payment.image">
+                                </div>
+                                <div class='cell-data user-payment'>
+                                    <span> {{ payment.name }} </span>
+                                    <sub> @{{ payment.username }} </sub>
+                                </div>
+                            </mat-cell>
                         </ng-container>
                       
-                        <!-- Name Column -->
                         <ng-container matColumnDef="title">
-                          <mat-header-cell *matHeaderCellDef> Título </mat-header-cell>
-                          <mat-cell *matCellDef="let payment"> {{ payment.title }} </mat-cell>
+                            <mat-header-cell *matHeaderCellDef>
+                                Título
+                                <button class='unfold-column-btn' mat-icon-button>
+                                    <mat-icon>unfold_more</mat-icon>
+                                </button>
+                            </mat-header-cell>
+                            <mat-cell *matCellDef="let payment"> {{ payment.title }} </mat-cell>
                         </ng-container>
                       
-                        <!-- Weight Column -->
                         <ng-container matColumnDef="date">
-                          <mat-header-cell *matHeaderCellDef> Data </mat-header-cell>
-                          <mat-cell *matCellDef="let payment">
-                              <span> {{ payment.date | date:'dd MMM YYYY' }} </span>
-                              <sub> {{ payment.date | date:' h:mm a' }} </sub>
+                            <mat-header-cell *matHeaderCellDef>
+                                Data
+                                <button class='unfold-column-btn' mat-icon-button>
+                                    <mat-icon>unfold_more</mat-icon>
+                                </button>
+                            </mat-header-cell>
+                            <mat-cell *matCellDef="let payment">
+                                <div class='cell-data'>
+                                    <span> {{ payment.date | date:'dd MMM YYYY' }} </span>
+                                    <sub> {{ payment.date | date:' h:mm a' }} </sub>
+                                </div>
                         </mat-cell>
                         </ng-container>
                       
-                        <!-- Symbol Column -->
                         <ng-container matColumnDef="value">
-                          <mat-header-cell *matHeaderCellDef> Valor </mat-header-cell>
+                            <mat-header-cell *matHeaderCellDef>
+                                Valor
+                                <button class='unfold-column-btn' mat-icon-button>
+                                    <mat-icon>unfold_more</mat-icon>
+                                </button>
+                            </mat-header-cell>
                           <mat-cell *matCellDef="let payment"> {{ payment.value | currency:'R$ ' }} </mat-cell>
                         </ng-container>
 
-                        <!-- Symbol Column -->
                         <ng-container matColumnDef="isPayed">
                             <mat-header-cell *matHeaderCellDef> Pago </mat-header-cell>
                             <mat-cell *matCellDef="let payment">
@@ -81,7 +99,6 @@
                             </mat-cell>
                         </ng-container>
 
-                        <!-- Symbol Column -->
                         <ng-container matColumnDef="action">
                             <mat-header-cell *matHeaderCellDef></mat-header-cell>
                             <mat-cell *matCellDef="let payment">

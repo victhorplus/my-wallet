@@ -38,13 +38,31 @@ section.body{
             table {
                 width: 100%;
                 
+                mat-row:nth-child(2n){
+                    background-color: #F5F8FA;
+                }
+                
                 mat-cell{
                     display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: flex-start;
+                    flex-direction: row;
+                    align-items: center;
+
+                    .cell-data{
+                        display: flex;
+                        flex-direction: column;
+                    }
                 }
-            
+                mat-cell:last-child{
+                    justify-content: end;
+                    .action-btn{
+                        cursor: pointer;
+                        margin: 0px 5px;
+                    }
+                }
+                
+                .img-payment{
+                    width: 30px;
+                }
                 sub{
                     color: #69788C;
                 }
@@ -56,14 +74,6 @@ section.body{
                 .mat-column-title{ flex: 0 0 25%; }
                 .mat-column-date, .mat-column-value{ flex: 0 0 15%; }
                 .mat-column-isPayed{ flex: 0 0 7%; }
-                .mat-column-action{ 
-                    display: flex;
-                    align-items: flex-end;
-                    .action-btn{
-                        cursor: pointer;
-                        margin: 0px 5px;
-                    }
-                 }
             }
         }
     }
