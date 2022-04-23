@@ -1,0 +1,68 @@
+{
+    "payments": {
+        "page_title": "Meus Pagamentos",
+        "open_profile_button": "Abrir perfil",
+        "logout_button": "Sair",
+        "username_search": "Pesquisar por usuário",
+        "add_payment_button": "ADICIONAR PAGAMENTO",
+        "filter_label": "Filtrar",
+        "user_column": "Usuário",
+        "title_column": "Título",
+        "date_column": "Data",
+        "value_column": "Valor",
+        "paid_column": "Pago"
+    },
+
+    "login": {
+        "welcome": "Bem vindo de volta",
+        "email_placeholder": "Email",
+        "password_placeholder": "Senha",
+        "login_button": "Entrar"
+    },
+
+    "paginator": {
+        "page_size_label": "Exibir"
+    },
+
+    "add_payment": {
+        "title": "Adicionar pagamento",
+        "username_input": "Usuário*",
+        "value_input": "Valor*",
+        "date_input": "Data*",
+        "title_input": "Título",
+        "cancel_button": "CANCELAR",
+        "save_button": "SALVAR"
+    },
+
+    "edit_payment": {
+        "title": "Editar pagamento",
+        "username_input": "Usuário*",
+        "value_input": "Valor*",
+        "date_input": "Data*",
+        "title_input": "Título",
+        "cancel_button": "CANCELAR",
+        "save_button": "SALVAR"
+    },
+
+    "delete_payment": {
+        "title": "Excluir pagamento",
+        "username_label": "Usuário*",
+        "value_label": "Valor*",
+        "date_label": "Data*",
+        "cancel_button": "CANCELAR",
+        "delete_button": "DELETAR"
+    },
+
+    "filter_payment": {
+        "title": "Filtrar pagamento",
+        "title_input": "Título",
+        "paid_input": "Pago",
+        "paid_value_true": "Sim",
+        "paid_value_false": "Não",
+        "min_value_input": "Valor mínimo",
+        "max_value_input": "Valor máximo",
+        "date_input": "Período",
+        "clear_button": "LIMPAR",
+        "filter_button": "FILTRAR"
+    }
+}

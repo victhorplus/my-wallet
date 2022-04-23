@@ -9,7 +9,6 @@ import { Paginator } from 'src/app/models/paginator.model';
 })
 export class PaginatorComponent implements OnInit {
   @Input('paginator') paginator: Paginator = {
-    label: 'Exibir',
     length: 50,
     pageSize: 10,
     pageSizeOptions: [5, 10, 25, 50],

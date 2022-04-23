@@ -1,7 +1,7 @@
 <div class='container'>
   <div class='popup'>
       <div class='row'>
-        <h2>Filtrar pagamento</h2>
+        <h2>{{ 'filter_payment.title' | translate }}</h2>
         <button (click)="closeFilters()" mat-icon-button aria-label="Fechar Popup">
           <mat-icon>close</mat-icon>
         </button>
@@ -9,7 +9,7 @@
       </div>
       <form [formGroup]="paymentForm">
         <mat-form-field appearance="outline">
-          <mat-label>Título</mat-label>
+          <mat-label>{{ 'filter_payment.title_input' | translate }}</mat-label>
           <mat-select formControlName='title'>
             <mat-option *ngFor="let title of titles" [value]="title">
               {{ title }}
@@ -18,26 +18,26 @@
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-          <mat-label>Pago</mat-label>
+          <mat-label>{{ 'filter_payment.paid_input' | translate }}</mat-label>
           <mat-select formControlName='isPayed'>
             <mat-option [value]="null"></mat-option>
-            <mat-option [value]="true" >Sim </mat-option>
-            <mat-option [value]="false"> Não </mat-option>
+            <mat-option [value]="true" >{{ 'filter_payment.paid_value_true' | translate }} </mat-option>
+            <mat-option [value]="false"> {{ 'filter_payment.paid_value_false' | translate }} </mat-option>
           </mat-select>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-            <mat-label>Valor mínimo</mat-label>
+            <mat-label>{{ 'filter_payment.min_value_input' | translate }}</mat-label>
             <input formControlName='value_gte' type="number" matInput>
         </mat-form-field>
         
         <mat-form-field appearance="outline">
-            <mat-label>Valor máximo</mat-label>
+            <mat-label>{{ 'filter_payment.max_value_input' | translate }}</mat-label>
             <input formControlName='value_lte' type="number" matInput>
         </mat-form-field>
       
         <mat-form-field appearance="outline">
-          <mat-label>Enter a date range</mat-label>
+          <mat-label>{{ 'filter_payment.date_input' | translate }}</mat-label>
           <mat-date-range-input [rangePicker]="picker">
             <input matStartDate formControlName="date_gte" placeholder="Data inicial">
             <input matEndDate formControlName="date_lte" placeholder="Data final">
@@ -48,8 +48,8 @@
 
         <div class='btn-row'>
             <div class="cell">
-                <button (click)="clear()" mat-raised-button>LIMPAR</button>
-                <button (click)="onSubmit()" mat-raised-button color="primary">FILTRAR</button>
+                <button (click)="clear()" mat-raised-button>{{ 'filter_payment.clear_button' | translate }}</button>
+                <button (click)="onSubmit()" mat-raised-button color="primary">{{ 'filter_payment.filter_button' | translate }}</button>
             </div>
         </div>
       </form>

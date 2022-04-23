@@ -3,7 +3,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -26,15 +28,34 @@ import { EditPaymentComponent } from './components/edit-payment/edit-payment.com
 import { DeletePaymentComponent } from './components/delete-payment/delete-payment.component';
 import { AlertsDialogComponent } from './components/alerts-dialog/alerts-dialog.component';
 import { FiltersDialogComponent } from './components/filters-dialog/filters-dialog.component';
+import { LanguageMenuComponent } from './components/language-menu/language-menu.component';
+
 @NgModule({
   declarations: [	
-    AppComponent, LoginComponent, PaymentsComponent, PaginatorComponent, AddPaymentComponent, EditPaymentComponent, DeletePaymentComponent, AlertsDialogComponent, FiltersDialogComponent,
+    AppComponent, 
+    LoginComponent, 
+    PaymentsComponent, 
+    PaginatorComponent, 
+    AddPaymentComponent, 
+    EditPaymentComponent,
+    DeletePaymentComponent, 
+    AlertsDialogComponent, 
+    FiltersDialogComponent, LanguageMenuComponent,
    ],
   imports: [
     BrowserModule,
     RouterModule,
     AppRoutingModule,
     HttpClientModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'pt',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
+    // Material imports
     BrowserAnimationsModule,
     MatIconModule,
     MatFormFieldModule,
@@ -53,3 +74,8 @@ import { FiltersDialogComponent } from './components/filters-dialog/filters-dial
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

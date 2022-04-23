@@ -1,5 +1,5 @@
 <div class="container">
-    <label>{{ paginator.label }}</label>
+    <label>{{ 'paginator.page_size_label' | translate }}</label>
     <mat-form-field appearance="outline">
         <mat-select id="size-options" [(value)]="paginator.pageSize" [formControl]="pageSizeControl">
             <mat-option *ngFor="let option of paginator.pageSizeOptions" [value]="option">
