@@ -36,7 +36,7 @@ export class PaymentsComponent implements OnInit {
   ) {
     this.paginator = JSON.parse(localStorage.getItem('paginator')) || {
       label: 'Exibir',
-      length: this.payments.length || 100,
+      length: 100,
       pageSize: 5,
       pageSizeOptions: [5, 10, 25, 50],
       pageIndex: 1
