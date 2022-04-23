@@ -1,14 +1,34 @@
 <div class="container">
-    <section class="header">
-        <div>
+    <section class="header" (click)="user_card=false">
+        <div class='logo-container'>
             <img src="assets/images/texto-logo.png" alt="">
         </div>
-        <div>
-            <img src="assets/images/user.png" class='user_img' alt="">
+
+        <div class='user-container'>
+            <!-- <div> -->
+                <button mat-button (click)="$event.stopPropagation(); user_card=true ">
+                    <img src="assets/images/user.png" class='user_img' alt="">
+                </button>
+                <div #userCard tabindex="0" (focusout)="user_card=false">
+                    <mat-card class="card" [class]='{hide: !user_card}'>
+                        <mat-card-header>
+                            <mat-card-title>{{ currentUser.name }}</mat-card-title>
+                            <mat-card-subtitle>{{ currentUser.email }}</mat-card-subtitle>
+                            <div class="header-image">
+                                <img src="assets/images/user.png">
+                            </div>
+                        </mat-card-header>
+                        <mat-card-actions>
+                            <button mat-button>Abrir Perfil</button>
+                            <button (click)="logout()" mat-raised-button class="primary">logout</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            <!-- </div> -->
         </div>
     </section>
 
-    <section class="body" [class]="{blur: blur}">
+    <section class="body" [class]="{blur: blur}" (click)="user_card=false">
         <div class="content">
             <div class="content-top">
                 <h1>Meus Pagamentos</h1>
@@ -147,6 +167,6 @@
         </div>
     </section>
 </div>
-<app-add-payment *ngIf="addPaymentPopup" (close)='closePopup();' (submit)="closePopup(); addPayment($event);"></app-add-payment>
-<app-edit-payment *ngIf="editPaymentPopup" (close)='closePopup();' (submit)="closePopup(); editPayment($event);" [payment]="current_payment"></app-edit-payment>
-<app-delete-payment *ngIf="deletePaymentPopup" (close)='closePopup();' (submit)="closePopup(); deletePayment($event);" [payment]="current_payment"></app-delete-payment>
+<app-add-payment (click)="user_card=false" *ngIf="addPaymentPopup" (close)='closePopup();' (submit)="closePopup(); addPayment($event);"></app-add-payment>
+<app-edit-payment (click)="user_card=false" *ngIf="editPaymentPopup" (close)='closePopup();' (submit)="closePopup(); editPayment($event);" [payment]="current_payment"></app-edit-payment>
+<app-delete-payment (click)="user_card=false" *ngIf="deletePaymentPopup" (close)='closePopup();' (submit)="closePopup(); deletePayment($event);" [payment]="current_payment"></app-delete-payment>

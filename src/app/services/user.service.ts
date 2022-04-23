@@ -12,7 +12,9 @@ export class UserService {
   api = 'http://localhost:3000';
   user: User;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.user = JSON.parse(localStorage.getItem('user'));
+  }
 
   login(user: Partial<User>): Observable<User>{
     let url = `${this.api}/account?email=${user.email}&&password=${user.password}`
@@ -37,5 +39,10 @@ export class UserService {
     let userJSON = JSON.stringify(this.user);
     localStorage.setItem('user', userJSON);
     localStorage.setItem('token', encrypt(userJSON));
+  }
+
+  getUser(){
+    this.user = JSON.parse(localStorage.getItem('user'));
+    return this.user;
   }
 }

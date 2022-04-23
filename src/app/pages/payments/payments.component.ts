@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CustomApi } from 'src/app/models/custom-api.model';
 import { Payment } from 'src/app/models/payment.model';
+import { User } from 'src/app/models/user.model';
 import { PaymentService } from 'src/app/services/payment.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-payments',
@@ -17,12 +20,18 @@ export class PaymentsComponent implements OnInit {
   addPaymentPopup = false;
   editPaymentPopup = false;
   deletePaymentPopup = false;
+  user_card = false;
   payments: Payment[];
   current_payment: Payment;
   sort: any;
   params: CustomApi;
+  currentUser: User;
 
-  constructor(private paymentService: PaymentService) {
+  constructor(
+    private paymentService: PaymentService,
+    private userService: UserService,
+    private router: Router 
+  ) {
     this.paginator = JSON.parse(localStorage.getItem('paginator')) || {
       label: 'Exibir',
       length: 100,
@@ -30,10 +39,9 @@ export class PaymentsComponent implements OnInit {
       pageSizeOptions: [5, 10, 25, 50],
       pageIndex: 1
     }
-    
     this.sort = JSON.parse(localStorage.getItem('sort')) || {}
-
     this.params = {};
+    this.currentUser = this.userService.getUser();
   }
   
   ngOnInit(): void {
@@ -115,12 +123,21 @@ export class PaymentsComponent implements OnInit {
   deletePayment(value){
     console.log("delete Payment", value)
   }
+
+  openUserCardPopup(){
+
+  }
   
   closePopup(){
     this.blur = false;
     this.addPaymentPopup = false;
     this.editPaymentPopup = false;
     this.deletePaymentPopup = false;
+  }
+
+  logout(){
+    this.userService.logout();
+    this.router.navigateByUrl('');
   }
 
 }

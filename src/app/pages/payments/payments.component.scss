@@ -5,6 +5,28 @@ section.header{
     background: #002D69;
     height: 80px;
     padding: 0px 20px;
+
+    .user-container{
+        .card {
+            display: block;
+            z-index: 1;
+            max-width: 400px;
+
+            mat-card-actions{
+                display: flex;
+                justify-content: flex-end;
+
+                button.primary{
+                    color: #fff;
+                    background: #007DFE;
+                }
+            }
+        }
+
+        .card.hide{
+            display: none;
+        }
+    }
 }
 
 section.body{
