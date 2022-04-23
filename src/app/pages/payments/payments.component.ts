@@ -128,7 +128,13 @@ export class PaymentsComponent implements OnInit {
   }
 
   deletePayment(value){
-    console.log("delete Payment", value)
+    this.paymentService.deletePayment(this.current_payment).toPromise().then( () => {
+      this.showMessageEvent.emit({
+        title: 'Pagamento deletado.',
+        message: `O Pagamento ${this.current_payment.title} foi deletado com sucesso!`
+      });
+      this.getPayments();
+    })
   }
   
   closePopup(){

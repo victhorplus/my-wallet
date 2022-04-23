@@ -20,10 +20,17 @@ export class PaymentService {
     });
   }
 
-  editPayment(oldPayment, newPayment): Observable<Payment>{
+  editPayment(oldPayment: Payment, newPayment: Payment): Observable<Payment>{
     return this.http.patch<Payment>(
       `${LIST_PAYMENTS_URL}/${oldPayment.id}`,
       {...oldPayment, ...newPayment}
     );
   }
+
+  deletePayment(payment: Payment): Observable<Payment>{
+    return this.http.delete<Payment>(
+      `${LIST_PAYMENTS_URL}/${payment.id}`
+    );
+  }
+
 }
