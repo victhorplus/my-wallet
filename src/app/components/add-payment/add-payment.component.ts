@@ -17,7 +17,7 @@ export class AddPaymentComponent implements OnInit {
 
   ngOnInit(): void {
     this.paymentForm = this.fb.group({
-      user:   [null, [Validators.required]],
+      username:   [null, [Validators.required]],
       value:  [null, [Validators.required]],
       date:   [null, [Validators.required]],
       title:  [null]
@@ -31,6 +31,8 @@ export class AddPaymentComponent implements OnInit {
   onSubmit(): void{
     if(this.paymentForm.status){
       this.payment = this.paymentForm.value;
+      this.payment.isPayed = false;
+      this.payment.image = "assets/images/user.png"
       this.submit.emit(this.payment);
     }
   }

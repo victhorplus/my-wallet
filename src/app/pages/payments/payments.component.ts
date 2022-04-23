@@ -54,7 +54,10 @@ export class PaymentsComponent implements OnInit {
   }
   
   changePaginator(paginator){
+    let pagesLength = paginator.length/paginator.pageSize;
     this.paginator = paginator;
+    if(paginator.pageIndex>pagesLength) this.paginator.pageIndex = pagesLength;
+
     localStorage.setItem('paginator', JSON.stringify(this.paginator));
     this.getPayments();
   }
@@ -101,8 +104,15 @@ export class PaymentsComponent implements OnInit {
     this.addPaymentPopup = true;
   }
 
-  addPayment(value){
-    console.log("Add Payment", value)
+  addPayment(payment){
+    this.paymentService.addPayment(payment).toPromise().then( (result) => {
+      debugger;
+      this.showMessageEvent.emit({
+        title: 'Pagamento Adicionado.',
+        message: `O Pagamento ${result.title} foi adicionado com sucesso!`
+      });
+      this.getPayments();
+    })
   }
  
   openEditPaymentPopup(payment){
@@ -127,7 +137,7 @@ export class PaymentsComponent implements OnInit {
     this.deletePaymentPopup = true;
   }
 
-  deletePayment(value){
+  deletePayment(){
     this.paymentService.deletePayment(this.current_payment).toPromise().then( () => {
       this.showMessageEvent.emit({
         title: 'Pagamento deletado.',

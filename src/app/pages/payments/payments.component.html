@@ -171,5 +171,5 @@
 </div>
 <app-add-payment (click)="user_card=false" *ngIf="addPaymentPopup" (close)='closePopup();' (submit)="closePopup(); addPayment($event);"></app-add-payment>
 <app-edit-payment (click)="user_card=false" *ngIf="editPaymentPopup" (close)='closePopup();' (submit)="closePopup(); editPayment($event);" [payment]="current_payment"></app-edit-payment>
-<app-delete-payment (click)="user_card=false" *ngIf="deletePaymentPopup" (close)='closePopup();' (submit)="closePopup(); deletePayment($event);" [payment]="current_payment"></app-delete-payment>
+<app-delete-payment (click)="user_card=false" *ngIf="deletePaymentPopup" (close)='closePopup();' (submit)="closePopup(); deletePayment();" [payment]="current_payment"></app-delete-payment>
 <app-alerts-dialog [showMessage] = 'showMessageEvent'></app-alerts-dialog>
