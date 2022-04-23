@@ -1,0 +1,57 @@
+<div class='container'>
+  <div class='popup'>
+      <div class='row'>
+        <h2>Filtrar pagamento</h2>
+        <button (click)="closeFilters()" mat-icon-button aria-label="Fechar Popup">
+          <mat-icon>close</mat-icon>
+        </button>
+        
+      </div>
+      <form [formGroup]="paymentForm">
+        <mat-form-field appearance="outline">
+          <mat-label>Título</mat-label>
+          <mat-select formControlName='title'>
+            <mat-option *ngFor="let title of titles" [value]="title">
+              {{ title }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Pago</mat-label>
+          <mat-select formControlName='isPayed'>
+            <mat-option></mat-option>
+            <mat-option [value]="true" >Sim </mat-option>
+            <mat-option [value]="false"> Não </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Valor mínimo</mat-label>
+            <input formControlName='value_gte' type="number" matInput>
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline">
+            <mat-label>Valor máximo</mat-label>
+            <input formControlName='value_lte' type="number" matInput>
+        </mat-form-field>
+      
+        <mat-form-field appearance="outline">
+          <mat-label>Enter a date range</mat-label>
+          <mat-date-range-input [rangePicker]="picker">
+            <input matStartDate formControlName="date_gte" placeholder="Data inicial">
+            <input matEndDate formControlName="date_lte" placeholder="Data final">
+          </mat-date-range-input>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+
+        <div class='btn-row'>
+            <div class="cell">
+                <button (click)="clear()" mat-raised-button>LIMPAR</button>
+                <button (click)="onSubmit()" mat-raised-button color="primary">FILTRAR</button>
+            </div>
+        </div>
+      </form>
+  </div>
+</div>

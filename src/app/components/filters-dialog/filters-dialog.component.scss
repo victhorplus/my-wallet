@@ -1,0 +1,47 @@
+.container{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 80px;
+    width: 100%;
+    height: calc(100% - 80px);
+    background: rgba(0,0,0, 0.3);
+}
+
+.row{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.popup{
+    max-width: 500px;
+    transform: translateY(-60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 40px 40px;
+    background: #fff;
+}
+
+form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    mat-form-field{
+    }
+}
+
+.btn-row{
+    width: 100%;
+    .cell { 
+        float: right;
+        margin-right: 0px;
+        width: fit-content;
+        button{ width: 100px; margin-left: 10px;}
+        button.mat-primary{ background: #007DFE; }
+    }
+}

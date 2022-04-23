@@ -42,7 +42,7 @@
                             <input [formControl]='usernameControl' matInput placeholder="Pesquisar por usuário">
                             <mat-icon matSuffix>search</mat-icon>
                         </mat-form-field>
-                        <button mat-flat-button class='search-btn'>
+                        <button (click)="openFiltersPopup()" mat-flat-button class='search-btn'>
                             <mat-icon matSuffix>tune</mat-icon>
                             Filtrar
                         </button>
@@ -172,4 +172,5 @@
 <app-add-payment (click)="user_card=false" *ngIf="addPaymentPopup" (close)='closePopup();' (submit)="closePopup(); addPayment($event);"></app-add-payment>
 <app-edit-payment (click)="user_card=false" *ngIf="editPaymentPopup" (close)='closePopup();' (submit)="closePopup(); editPayment($event);" [payment]="current_payment"></app-edit-payment>
 <app-delete-payment (click)="user_card=false" *ngIf="deletePaymentPopup" (close)='closePopup();' (submit)="closePopup(); deletePayment();" [payment]="current_payment"></app-delete-payment>
+<app-filters-dialog (click)="user_card=false" *ngIf="filtersPopup" (close)='closePopup();' (submit)="closePopup(); filterBy($event);"></app-filters-dialog>
 <app-alerts-dialog [showMessage] = 'showMessageEvent'></app-alerts-dialog>

@@ -17,6 +17,7 @@ export class PaymentsComponent implements OnInit {
   usernameControl: FormControl = new FormControl('');
   paginator: any;
   blur: boolean = false;
+  filtersPopup = false;
   addPaymentPopup = false;
   editPaymentPopup = false;
   deletePaymentPopup = false;
@@ -35,7 +36,7 @@ export class PaymentsComponent implements OnInit {
   ) {
     this.paginator = JSON.parse(localStorage.getItem('paginator')) || {
       label: 'Exibir',
-      length: 100,
+      length: this.payments.length || 100,
       pageSize: 5,
       pageSizeOptions: [5, 10, 25, 50],
       pageIndex: 1
@@ -47,10 +48,14 @@ export class PaymentsComponent implements OnInit {
   
   ngOnInit(): void {
     this.getPayments();
+    this.searchByUsername();
+  }
+
+  searchByUsername(){
     this.usernameControl.valueChanges.subscribe( value => {
       this.params['username_like'] = value;
       this.getPayments();
-    })
+    });
   }
   
   changePaginator(paginator){
@@ -99,6 +104,22 @@ export class PaymentsComponent implements OnInit {
     localStorage.setItem('sort', JSON.stringify(this.sort));
   }
 
+  openFiltersPopup(){
+    this.blur = true;
+    this.filtersPopup = true;
+  }
+
+  filterBy(filters){
+// Filtro existe?      // Se sim, parâmetro recebe valor do filtro            // Se não, deleta filtro do parâmetro         
+    filters.title?      this.params.title =     filters.title:                  delete this.params.title;
+    filters.date_gte?   this.params.date_gte =  filters.date_gte.split("T")[0]: delete this.params.date_gte;
+    filters.date_lte?   this.params.date_lte =  filters.date_lte.split("T")[0]: delete this.params.date_lte;
+    filters.value_gte?  this.params.value_gte = filters.value_gte:              delete this.params.value_gte;
+    filters.value_lte?  this.params.value_lte = filters.value_lte:              delete this.params.value_lte
+    filters.isPayed?    this.params.isPayed =   filters.isPayed:                delete this.params.isPayed;
+    this.getPayments();
+  }
+
   openAddPaymentPopup(){
     this.blur = true;
     this.addPaymentPopup = true;
@@ -106,7 +127,6 @@ export class PaymentsComponent implements OnInit {
 
   addPayment(payment){
     this.paymentService.addPayment(payment).toPromise().then( (result) => {
-      debugger;
       this.showMessageEvent.emit({
         title: 'Pagamento Adicionado.',
         message: `O Pagamento ${result.title} foi adicionado com sucesso!`
@@ -152,6 +172,7 @@ export class PaymentsComponent implements OnInit {
     this.addPaymentPopup = false;
     this.editPaymentPopup = false;
     this.deletePaymentPopup = false;
+    this.filtersPopup = false;
   }
 
   logout(){

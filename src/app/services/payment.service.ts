@@ -14,7 +14,7 @@ export class PaymentService {
 
   constructor(private http: HttpClient) { }
 
-  getPayments(params: CustomApi | any): Observable<Payment[]>{
+  getPayments(params?: CustomApi | any): Observable<Payment[]>{
     return this.http.get<Payment[]>(LIST_PAYMENTS_URL, {
       params: params
     });
