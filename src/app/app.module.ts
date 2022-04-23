@@ -24,9 +24,10 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
 import { AddPaymentComponent } from './components/add-payment/add-payment.component';
 import { EditPaymentComponent } from './components/edit-payment/edit-payment.component';
 import { DeletePaymentComponent } from './components/delete-payment/delete-payment.component';
+import { AlertsDialogComponent } from './components/alerts-dialog/alerts-dialog.component';
 @NgModule({
   declarations: [	
-    AppComponent, LoginComponent, PaymentsComponent, PaginatorComponent, AddPaymentComponent, EditPaymentComponent, DeletePaymentComponent,
+    AppComponent, LoginComponent, PaymentsComponent, PaginatorComponent, AddPaymentComponent, EditPaymentComponent, DeletePaymentComponent, AlertsDialogComponent,
    ],
   imports: [
     BrowserModule,

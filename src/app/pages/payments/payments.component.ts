@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CustomApi } from 'src/app/models/custom-api.model';
@@ -25,7 +25,8 @@ export class PaymentsComponent implements OnInit {
   current_payment: Payment;
   sort: any;
   params: CustomApi;
-  currentUser: User;
+  currentUser: Partial<User>;
+  showMessageEvent = new EventEmitter();
 
   constructor(
     private paymentService: PaymentService,
@@ -41,7 +42,7 @@ export class PaymentsComponent implements OnInit {
     }
     this.sort = JSON.parse(localStorage.getItem('sort')) || {}
     this.params = {};
-    this.currentUser = this.userService.getUser();
+    this.currentUser = this.userService.getUser() || {};
   }
   
   ngOnInit(): void {
@@ -111,7 +112,7 @@ export class PaymentsComponent implements OnInit {
   }
 
   editPayment(value){
-    console.log("edit Payment", value)
+    console.log("edit Payment", value);
   }
   
   openDeletePaymentPopup(payment){
@@ -122,10 +123,6 @@ export class PaymentsComponent implements OnInit {
 
   deletePayment(value){
     console.log("delete Payment", value)
-  }
-
-  openUserCardPopup(){
-
   }
   
   closePopup(){
