@@ -112,7 +112,13 @@ export class PaymentsComponent implements OnInit {
   }
 
   editPayment(value){
-    console.log("edit Payment", value);
+    this.paymentService.editPayment(this.current_payment, value).toPromise().then( () => {
+      this.showMessageEvent.emit({
+        title: 'Pagamento editado.',
+        message: `O Pagamento ${this.current_payment.title} foi editado com sucesso!`
+      });
+      this.getPayments();
+    })
   }
   
   openDeletePaymentPopup(payment){

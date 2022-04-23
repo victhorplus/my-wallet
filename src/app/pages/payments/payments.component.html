@@ -142,8 +142,10 @@
                             </mat-header-cell>
                             <mat-cell *matCellDef="let payment">
                                 <mat-checkbox
+                                    #isPayedCheckbox
                                     class="example-margin"
                                     color="accent"
+                                    (click)="current_payment=payment; editPayment({isPayed: !payment.isPayed});"
                                     [checked]="payment.isPayed">
                                 </mat-checkbox>
                             </mat-cell>

@@ -28,7 +28,7 @@ export class EditPaymentComponent implements OnInit {
     this.close.emit();
   }
 
-  onSubmit(): void{
+  onSubmit(){
     if(this.paymentForm.status){
       this.payment = this.paymentForm.value;
       this.submit.emit(this.payment);

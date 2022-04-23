@@ -19,4 +19,11 @@ export class PaymentService {
       params: params
     });
   }
+
+  editPayment(oldPayment, newPayment): Observable<Payment>{
+    return this.http.patch<Payment>(
+      `${LIST_PAYMENTS_URL}/${oldPayment.id}`,
+      {...oldPayment, ...newPayment}
+    );
+  }
 }
