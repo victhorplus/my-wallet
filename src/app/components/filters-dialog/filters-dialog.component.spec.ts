@@ -1,4 +1,6 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormBuilder } from '@angular/forms';
 
 import { FiltersDialogComponent } from './filters-dialog.component';
 
@@ -8,7 +10,9 @@ describe('FiltersDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FiltersDialogComponent ]
+      imports: [ HttpClientTestingModule ],
+      declarations: [ FiltersDialogComponent ],
+      providers: [{ provide: FormBuilder}]
     })
     .compileComponents();
   });
