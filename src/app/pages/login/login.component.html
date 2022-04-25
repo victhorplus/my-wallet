@@ -5,21 +5,21 @@
             <h1>{{ 'login.welcome' | translate }}</h1>
             <div class='email'>
                 <mat-form-field appearance="outline">
-                    <mat-label>{{ 'login.email-placeholder' | translate}}</mat-label>
+                    <mat-label>{{ 'login.email_placeholder' | translate}}</mat-label>
                     <input formControlName='email' matInput>
                     <mat-icon matSuffix>email</mat-icon>
                 </mat-form-field>
             </div>
             <div class="password">
                 <mat-form-field appearance="outline">
-                    <mat-label>{{ 'login.password-placeholder' | translate }}</mat-label>
+                    <mat-label>{{ 'login.password_placeholder' | translate }}</mat-label>
                     <input formControlName='password' [type]="hidePassword ? 'password' : 'text'" matInput>
                     <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
                         <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
                 </mat-form-field>
             </div>
-            <button (click)="onSubmit()" mat-flat-button class='login-button' color="primary">{{ 'login.login-button' | translate }}</button>
+            <button (click)="onSubmit()" mat-flat-button class='login-button' color="primary">{{ 'login.login_button' | translate }}</button>
         </form>
     </section>
 
