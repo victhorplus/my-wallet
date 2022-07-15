@@ -19,7 +19,7 @@ module.exports = function (config) {
       }
     },
     coverageIstanbulReporter: {
-      dir: require('path').join(__dirname, './coverage/picpay-desafio-frontend'),
+      dir: require('path').join(__dirname, './coverage/my-wallet'),
       reports: ['html', 'lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true
     },
