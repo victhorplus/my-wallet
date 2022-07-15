@@ -1,0 +1,41 @@
+<div class='container'>
+    <div class='popup'>
+        <form [formGroup]="paymentForm">
+            <div class='row'>
+                <h2>{{ 'edit_payment.title' | translate }}</h2>
+            </div>
+            <div class='row'>
+                <mat-form-field appearance="outline">
+                    <mat-label>{{ 'edit_payment.username_input' | translate }}</mat-label>
+                    <input formControlName='user' matInput>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>{{ 'edit_payment.value_input' | translate }}</mat-label>
+                    <input formControlName='value' type="number" matInput>
+                </mat-form-field>
+            </div>
+            
+            <div class='row'>
+                <mat-form-field appearance="outline">
+                    <mat-label>{{ 'edit_payment.date_input' | translate }}</mat-label>
+                    <input formControlName='date' placeholder="dd/mm/aaaa" matInput [matDatepicker]="picker">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>{{ 'edit_payment.title_input' | translate }}</mat-label>
+                    <input formControlName='title' matInput>
+                </mat-form-field>
+            </div>
+
+            <div class='row btn-row'>
+                <div class="cell">
+                    <button (click)="cancelEditPayment()" mat-raised-button>CANCELAR</button>
+                    <button (click)="onSubmit()" mat-raised-button color="primary">SALVAR</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<div class='container'>
+    <div class='popup'>
+        <div>
+            <div class='row'>
+                <h2>{{ 'delete_payment.title' | translate }}</h2>
+            </div>
+            <div class='row'>
+                {{ 'delete_payment.user_labe' | translate }}: {{ payment.username }}
+            </div>
+            <div class='row'>
+                {{ 'delete_payment.date_label' | translate }}: {{ payment.date | date:'dd MMM YYYY' }}
+            </div>
+            <div class='row'>
+                {{ 'delete_payment.value_label' | translate }}: {{ payment.value | currency:'R$ ' }}
+            </div>
+
+            <div class='row btn-row'>
+                <div class="cell">
+                    <button (click)="cancelDeletePayment()" mat-raised-button>{{ 'delete_payment.cancel_button' | translate }}</button>
+                    <button (click)="onSubmit()" type="submit" mat-raised-button color="warn">{{ 'delete_payment.delete_button' | translate }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
