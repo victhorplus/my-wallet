@@ -9,7 +9,7 @@ import { encrypt } from 'src/app/util/crypto';
   providedIn: 'root'
 })
 export class UserService {
-  api = 'http://localhost:3000';
+  api = `${window.location.origin}:3000`;
   user: User;
 
   constructor(private http: HttpClient) {
