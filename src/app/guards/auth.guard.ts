@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Router, ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { encrypt, decrypt } from 'src/app/util/crypto';
 import { UserService } from '../services/user.service';
 
 @Injectable({
@@ -32,7 +31,7 @@ export class AuthGuard implements CanActivate{
     let token = localStorage.getItem('token');
 
     if(!user || !token) return false;
-    if(user == decrypt(token)) return true;
+    if(user == token) return true;
     
     this.userService.logout();
     return false;

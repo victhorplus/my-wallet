@@ -4,12 +4,11 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { User } from 'src/app/models/user.model';
-import { encrypt } from 'src/app/util/crypto';
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  api = `${window.location.origin}:3000`;
+  api = `${window.location.protocol}//${window.location.hostname}:3000`;
   user: User;
 
   constructor(private http: HttpClient) {
@@ -38,7 +37,7 @@ export class UserService {
     this.user = user;
     let userJSON = JSON.stringify(this.user);
     localStorage.setItem('user', userJSON);
-    localStorage.setItem('token', encrypt(userJSON));
+    localStorage.setItem('token', userJSON);
   }
 
   getUser(){
